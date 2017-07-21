@@ -1,0 +1,11 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "MongoDB": {
+    "url": "mongodb://127.0.0.1:27017/doit",
+    "name": "MongoDB",
+    "connector": "mongodb"
+  }
+}
