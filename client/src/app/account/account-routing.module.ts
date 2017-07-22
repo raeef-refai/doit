@@ -5,20 +5,23 @@ import {
   Routes,
   RouterModule,
 } from '@angular/router';
+import {
+  LoginComponent,
+} from './login/login.component';
 
 const routes: Routes = [
   {
-    path: 'account',
-    loadChildren: 'app/account/account.module#AccountModule',
+    path: 'login',
+    component: LoginComponent,
   }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forChild(routes),
   ],
   exports: [
     RouterModule,
   ],
 })
-export class AppRoutingModule { }
+export class AccountRoutingModule { }
