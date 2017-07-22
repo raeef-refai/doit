@@ -8,11 +8,17 @@ import {
 import {
   HomeComponent,
 } from './home.component';
+import {
+  AuthedGuardService,
+} from '../auth/authed-guard.service';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    canActivate: [
+      AuthedGuardService,
+    ],
   },
 ];
 
