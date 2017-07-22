@@ -8,11 +8,17 @@ import {
 import {
   LoginComponent,
 } from './login/login.component';
+import {
+  UnauthedGuardService,
+} from '../auth/unauthed-guard.service';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [
+      UnauthedGuardService,
+    ],
   }
 ];
 

@@ -21,6 +21,9 @@ import {
   AuthedGuardService,
 } from './auth/authed-guard.service';
 import {
+  UnauthedGuardService,
+} from './auth/unauthed-guard.service';
+import {
   AccountService,
 } from './auth/account.service';
 import {
@@ -40,6 +43,7 @@ import {
     AccountService,
     BackendService,
     AuthedGuardService,
+    UnauthedGuardService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
