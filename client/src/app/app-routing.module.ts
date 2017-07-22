@@ -14,7 +14,12 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: 'app/home/home.module#HomeModule',
-  }
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: '/home',
+  },
 ];
 
 @NgModule({
