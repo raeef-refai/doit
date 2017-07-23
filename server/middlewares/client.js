@@ -3,8 +3,7 @@
 const path = require('path');
 
 module.exports = () => {
-  return (req, res, next) => {
-    console.log('got here');
+  return (req, res) => {
     res.sendFile(path.resolve(__dirname, '../../client/dist/index.html'));
   };
 };
