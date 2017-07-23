@@ -9,6 +9,9 @@ import {
   LoginComponent,
 } from './login/login.component';
 import {
+  RegisterComponent,
+} from './register/register.component';
+import {
   UnauthedGuardService,
 } from '../auth/unauthed-guard.service';
 
@@ -19,7 +22,14 @@ const routes: Routes = [
     canActivate: [
       UnauthedGuardService,
     ],
-  }
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    canActivate: [
+      UnauthedGuardService,
+    ],
+  },
 ];
 
 @NgModule({

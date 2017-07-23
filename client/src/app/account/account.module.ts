@@ -6,6 +6,7 @@ import {
 } from '@angular/common';
 import {
   FormsModule,
+  ReactiveFormsModule,
 } from '@angular/forms';
 import {
   AccountRoutingModule,
@@ -13,15 +14,20 @@ import {
 import {
   LoginComponent,
 } from './login/login.component';
+import {
+  RegisterComponent,
+} from './register/register.component';
 
 @NgModule({
   imports: [
     FormsModule,
     CommonModule,
+    ReactiveFormsModule,
     AccountRoutingModule,
   ],
   declarations: [
     LoginComponent,
+    RegisterComponent,
   ],
 })
 export class AccountModule { }

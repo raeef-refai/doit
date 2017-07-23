@@ -13,6 +13,9 @@
     <li class="nav-item" routerLinkActive="active" *ngIf="!account.isLoggedIn">
       <a class="nav-link" routerLink="/account/login">Login</a>
     </li>
+    <li class="nav-item" routerLinkActive="active" *ngIf="!account.isLoggedIn">
+      <a class="nav-link" routerLink="/account/register">register</a>
+    </li>
     <li class="nav-item" *ngIf="account.isLoggedIn">
       <a class="nav-link" href="" (click)="logout($event)">{{account.account.firstName}} - Logout</a>
     </li>

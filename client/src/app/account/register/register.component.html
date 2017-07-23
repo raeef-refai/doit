@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <span>Login</span>
+        <i class="fa fa-user-plus fa-lg"></i>
+      </div>
+      <div class="card-block">
+        <form autocomplete="off" novalidate (ngSubmit)="submitHandler()" [formGroup]="registerForm">
+          <div class="form-group" [class.has-danger]="errors.firstName">
+            <label for="firstName" class="form-control-label">First Name:</label>
+            <input id="firstName" type="text" class="form-control" formControlName="firstName">
+            <p class="form-control-feedback" *ngIf="errors.firstName">{{errors.firstName}}</p>
+          </div>
+          <div class="form-group" [class.has-danger]="errors.lastName">
+            <label for="lastName" class="form-control-label">Last Name:</label>
+            <input id="lastName" type="text" class="form-control" formControlName="lastName">
+            <p class="form-control-feedback" *ngIf="errors.lastName">{{errors.lastName}}</p>
+          </div>
+          <div class="form-group" [class.has-danger]="errors.email">
+            <label for="email" class="form-control-label">Email:</label>
+            <input id="email" type="email" class="form-control" formControlName="email">
+            <p class="form-control-feedback" *ngIf="errors.email">{{errors.email}}</p>
+          </div>
+          <div class="form-group" [class.has-danger]="errors.password">
+            <label for="password" class="form-control-label">Password:</label>
+            <input id="password" type="password" class="form-control" formControlName="password">
+            <p class="form-control-feedback" *ngIf="errors.password">{{errors.password}}</p>
+          </div>
+          <div class="form-group" [class.has-danger]="errors.passwordConfirmation">
+            <label for="passwordConfirmation" class="form-control-label">Password Confirmation:</label>
+            <input id="passwordConfirmation" type="password" class="form-control" formControlName="passwordConfirmation">
+            <p class="form-control-feedback" *ngIf="errors.passwordConfirmation">{{errors.passwordConfirmation}}</p>
+          </div>
+          <button class="btn btn-primary" [disabled]="registerForm.invalid || isLoading">Register!</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
