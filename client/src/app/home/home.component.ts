@@ -7,6 +7,9 @@ import {
   LatLngLiteral,
   MouseEvent as MapMouseEvent,
 } from '@agm/core';
+import {
+  BackendService,
+} from '../shared/backend.service';
 
 declare const google: any;
 
@@ -43,6 +46,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private _zone: NgZone,
+    private _backend: BackendService,
   ) {
     this.userMarkers = this.mapMarkers = [];
   }
