@@ -32,7 +32,9 @@
             <input id="passwordConfirmation" type="password" class="form-control" formControlName="passwordConfirmation">
             <p class="form-control-feedback" *ngIf="errors.passwordConfirmation">{{errors.passwordConfirmation}}</p>
           </div>
-          <button class="btn btn-primary" [disabled]="registerForm.invalid || isLoading">Register!</button>
+          <button class="btn btn-primary btn-block" [disabled]="registerForm.invalid || isLoading">
+            <i class="fa fa-fw" [ngClass]="isLoading ? 'fa-spinner fa-spin' : 'fa-user-plus'"></i> Register!
+          </button>
         </form>
       </div>
     </div>
