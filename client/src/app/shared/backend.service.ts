@@ -29,4 +29,8 @@ export class BackendService {
     return this._http.post(`${environment.baseApiUrl}/${model}${action}`, data, options);
   }
 
+  list(model: string): Observable<any> {
+    return this._http.get(`${environment.baseApiUrl}/${model}`);
+  }
+
 }
