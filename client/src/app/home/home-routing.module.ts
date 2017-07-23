@@ -19,6 +19,9 @@ const routes: Routes = [
     canActivate: [
       AuthedGuardService,
     ],
+    data: {
+      title: 'Home',
+    },
   },
 ];
 

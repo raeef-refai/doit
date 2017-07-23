@@ -22,6 +22,9 @@ const routes: Routes = [
     canActivate: [
       UnauthedGuardService,
     ],
+    data: {
+      title: 'Login',
+    },
   },
   {
     path: 'register',
@@ -29,6 +32,9 @@ const routes: Routes = [
     canActivate: [
       UnauthedGuardService,
     ],
+    data: {
+      title: 'Register',
+    },
   },
 ];
 
