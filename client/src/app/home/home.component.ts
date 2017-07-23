@@ -20,6 +20,7 @@ import {
   HttpParams,
 } from '@angular/common/http';
 import 'rxjs/add/observable/merge';
+import * as _ from 'lodash';
 
 declare const google: any;
 
@@ -109,6 +110,8 @@ export class HomeComponent implements OnInit {
     if (this.userMarkers === this.mapMarkers) {
       if (marker.id) {
         this.markersToDelete.push(marker);
+      } else {
+        this.markersToSave = _.without(this.markersToSave, marker);
       }
 
       this.userMarkers.splice(index, 1);
@@ -181,6 +184,7 @@ export class HomeComponent implements OnInit {
           this.markersToSave.forEach((marker, index) => marker.id = markers[index].id);
 
           this.markersToSave = [];
+          this.markersToDelete = [];
         }
       }, null, () => {
         this.isLoading = false;
