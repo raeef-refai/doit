@@ -49,5 +49,9 @@
         }
       }
     }
+  },
+  "Marker": {
+    "dataSource": "MongoDB",
+    "public": true
   }
 }
