@@ -29,6 +29,12 @@ import {
 import {
   BackendService,
 } from './shared/backend.service';
+import {
+  AgmCoreModule,
+} from '@agm/core';
+import {
+  environment,
+} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -38,6 +44,9 @@ import {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.googleMapsApiKey,
+    }),
   ],
   providers: [
     AccountService,
@@ -48,7 +57,7 @@ import {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
       multi: true,
-    }
+    },
   ],
   bootstrap: [
     AppComponent,
