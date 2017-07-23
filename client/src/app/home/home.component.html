@@ -6,21 +6,29 @@
 <div class="row" *ngIf="mapCenter">
   <div class="col-md-4 mb-4">
     <div class="card">
-      <div class="card-header">
-        List of types:
+      <div class="card-header d-flex justify-content-between align-items-center">
+        span List of types:
+        <i class="fa fa-spin fa-spinner fa-1x" *ngIf="isLoading"></i>
       </div>
       <div class="list-group list-group-flush">
-        <button class="list-group-item list-group-item-action" *ngFor="let type of types" (click)="getPlaces(type.name)" [class.active]="type.name === currentType">{{type.title}}</button>
+        <button class="list-group-item list-group-item-action" *ngFor="let type of types" (click)="getPlaces(type.name)" [class.active]="type.name === currentType"
+          [disabled]="isLoading">{{type.title}}</button>
       </div>
     </div>
   </div>
   <div class="col-md-8">
     <agm-map [latitude]="mapCenter.lat" [longitude]="mapCenter.lng" (mapClick)="mapClickHandler($event)" [zoom]="15" [streetViewControl]="false"
-      (mapReady)="mapReadyHandler($event)" (idle)="idleHandler()">
-      <agm-marker *ngFor="let marker of mapMarkers" [latitude]="marker.lat" [longitude]="marker.lng" (markerClick)="markerClickHandler(marker)"></agm-marker>
+      (mapReady)="mapReadyHandler($event)" (idle)="idleHandler()" [mapDraggable]="!isLoading" [zoomControl]="!isLoading" disableDoubleClickZoom="true"
+      [scrollwheel]="!isLoading">
+      <agm-marker *ngFor="let marker of mapMarkers; let i = index;" [latitude]="marker.location.lat" [longitude]="marker.location.lng"
+        (markerClick)="markerClickHandler(marker, i)"></agm-marker>
     </agm-map>
-    <button class="btn btn-secondary btn-lg my-2" (click)="showUserMarkers()">
+    <button class="btn btn-secondary btn-lg my-2" (click)="showUserMarkers()" [disabled]="isLoading">
       Show my markers
+    </button>
+    <button class="btn btn-secondary btn-lg my-2" (click)="updateMarkers()" [disabled]="(!markersToSave.length && !markersToDelete.length) || isLoading"
+      *ngIf="userMarkers === mapMarkers">
+      Update markers
     </button>
   </div>
 </div>

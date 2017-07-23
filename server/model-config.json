@@ -45,13 +45,14 @@
           "*": false,
           "login": true,
           "logout": true,
-          "create": true
+          "create": true,
+          "deleteMarkers": true
         }
       }
     }
   },
   "Marker": {
     "dataSource": "MongoDB",
-    "public": true
+    "public": false
   }
 }

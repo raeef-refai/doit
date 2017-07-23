@@ -50,7 +50,43 @@
       "principalId": "$unauthenticated",
       "permission": "ALLOW",
       "property": "create"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__get__markers"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__create__markers"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "deleteMarkers"
     }
   ],
-  "methods": {}
+  "methods": {
+    "prototype.deleteMarkers": {
+      "accepts": [
+        {
+          "arg": "ids",
+          "type": "array",
+          "description": "Markers ids",
+          "required": true
+        }
+      ],
+      "http": {
+        "path": "/markers",
+        "verb": "delete"
+      }
+    }
+  }
 }
