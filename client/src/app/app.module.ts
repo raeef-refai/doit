@@ -46,6 +46,9 @@ import {
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsApiKey,
+      libraries: [
+        'places',
+      ],
     }),
   ],
   providers: [
