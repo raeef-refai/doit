@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "engines": {
-    "node": ">=4"
+    "node": "6.11.1"
   },
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
-    "posttest": "npm run lint && nsp check && cd client && npm i && ng build --prod -aot"
+    "postinstall": "cd client && npm i && ./node_modules/.bin/ng build --prod --aot",
+    "posttest": "npm run lint && nsp check"
   },
   "dependencies": {
     "compression": "^1.0.3",
