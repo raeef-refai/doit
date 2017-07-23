@@ -40,6 +40,9 @@ import {
   AgmCoreModule,
 } from '@agm/core';
 import {
+  NgbModule,
+} from '@ng-bootstrap/ng-bootstrap';
+import {
   environment,
 } from '../environments/environment';
 
@@ -51,6 +54,7 @@ import {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsApiKey,
       libraries: [

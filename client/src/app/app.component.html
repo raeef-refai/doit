@@ -1,25 +1,30 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
   <a class="navbar-brand" routerLink="/home">DoIT</a>
-
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" routerLink="/home">Home</a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" routerLink="/about">About</a>
-    </li>
-  </ul>
-  <ul class="navbar-nav">
-    <li class="nav-item" routerLinkActive="active" *ngIf="!account.isLoggedIn">
-      <a class="nav-link" routerLink="/account/login">Login</a>
-    </li>
-    <li class="nav-item" routerLinkActive="active" *ngIf="!account.isLoggedIn">
-      <a class="nav-link" routerLink="/account/register">register</a>
-    </li>
-    <li class="nav-item" *ngIf="account.isLoggedIn">
-      <a class="nav-link" href="" (click)="logout($event)">{{account.account.firstName}} - Logout</a>
-    </li>
-  </ul>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation"
+    (click)="isNavbarCollapsed = !isNavbarCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" [ngbCollapse]="isNavbarCollapsed">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/home" (click)="isNavbarCollapsed = true">Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/about" (click)="isNavbarCollapsed = true">About</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item" routerLinkActive="active" *ngIf="!account.isLoggedIn">
+        <a class="nav-link" routerLink="/account/login" (click)="isNavbarCollapsed = true">Login</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="!account.isLoggedIn">
+        <a class="nav-link" routerLink="/account/register" (click)="isNavbarCollapsed = true">register</a>
+      </li>
+      <li class="nav-item" *ngIf="account.isLoggedIn">
+        <a class="nav-link" href="" (click)="logout($event)" (click)="isNavbarCollapsed = true">{{account.account.firstName}} - Logout</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 
 <div class="container mt-5">

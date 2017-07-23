@@ -20,6 +20,7 @@ import {
 })
 export class AppComponent {
   title = 'app';
+  isNavbarCollapsed = true;
 
   constructor(
     public account: AccountService,
