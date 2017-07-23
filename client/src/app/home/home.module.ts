@@ -10,10 +10,14 @@ import {
 import {
   HomeComponent,
 } from './home.component';
+import {
+  AgmCoreModule,
+} from '@agm/core';
 
 @NgModule({
   imports: [
     CommonModule,
+    AgmCoreModule,
     HomeRoutingModule,
   ],
   declarations: [

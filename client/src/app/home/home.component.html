@@ -1,3 +1,26 @@
-<p>
-  home works!
-</p>
+<div class="row" *ngIf="!mapCenter">
+  <div class="col text-center">
+    <i class="fa fa-spinner fa-spin fa-2x"></i>
+  </div>
+</div>
+<div class="row" *ngIf="mapCenter">
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      <div class="card-header">
+        List of types:
+      </div>
+      <div class="list-group list-group-flush">
+        <button class="list-group-item list-group-item-action" *ngFor="let type of types" (click)="getPlaces(type.name)" [class.active]="type.name === currentType">{{type.title}}</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <agm-map [latitude]="mapCenter.lat" [longitude]="mapCenter.lng" (mapClick)="mapClickHandler($event)" [zoom]="15" [streetViewControl]="false"
+      (mapReady)="mapReadyHandler($event)" (idle)="idleHandler()">
+      <agm-marker *ngFor="let marker of mapMarkers" [latitude]="marker.lat" [longitude]="marker.lng" (markerClick)="markerClickHandler(marker)"></agm-marker>
+    </agm-map>
+    <button class="btn btn-secondary btn-lg my-2" (click)="showUserMarkers()">
+      Show my markers
+    </button>
+  </div>
+</div>
