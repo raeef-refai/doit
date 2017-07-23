@@ -19,7 +19,7 @@ export class BackendService {
     private _http: HttpClient,
   ) { }
 
-  post(model: string, data: any, action?: string, params?: HttpParams): Observable<any> {
+  post(model: string, data?: any, action?: string, params?: HttpParams): Observable<any> {
     action = action ? `/${action}` : '';
 
     const options = {
