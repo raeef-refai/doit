@@ -40,6 +40,8 @@ export class AuthInterceptorService implements HttpInterceptor {
     return next.handle(request)
       .catch((error: any, val: Observable<HttpEvent<any>>) => {
         if (error instanceof HttpErrorResponse && [401, 403].indexOf(error.status) !== -1) {
+          this._account.clear();
+
           this._router.navigate(['/account/login']);
         }
 
